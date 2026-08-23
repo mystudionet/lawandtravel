@@ -438,7 +438,7 @@ a{color:inherit}
       (!name ? form.name : (email.indexOf("@") < 0 ? form.email : form.phone)).focus();
       return;
     }
-    var waText = "New request, Law and Travel\nDates: " + dates + "\nName: " + name + "\nEmail: " + email + "\nPhone: " + phone + "\nGroup size: " + group;
+    var waText = "Hi, I'm interested in your vacation package to Türkiye. Please call me on the number below.\n\nDates: " + dates + "\nName: " + name + "\nEmail: " + email + "\nPhone: " + phone + "\nGroup size: " + group;
     var waUrl = "https://wa.me/" + form.getAttribute("data-whatsapp") + "?text=" + encodeURIComponent(waText);
 
     /* 1. record in Google Forms via hidden iframe (Google blocks CORS, so no fetch) */
