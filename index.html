@@ -76,7 +76,7 @@ a{color:inherit}
 .track{position:relative;z-index:1}
 .beat{position:relative}
 .beat-in{position:sticky;top:0;height:100svh;display:flex;align-items:flex-end;pointer-events:none}
-.beat-in .wrap{pointer-events:auto;padding-bottom:clamp(60px,10vw,110px);max-width:none;margin-inline:0}.beat-right .beat-in{justify-content:flex-end}.beat-right .beat-in .wrap{text-align:left}
+.beat-in .wrap{pointer-events:auto;padding-bottom:clamp(60px,10vw,110px);max-width:none;margin-inline:0}
 .copy{position:relative;max-width:min(46ch,52vw);padding:8px 0}
 .copy::before{
   content:"";position:absolute;z-index:-1;
@@ -262,7 +262,7 @@ a{color:inherit}
     </div>
   </section>
 
-  <section class="beat beat-right" id="beat-airport">
+  <section class="beat" id="beat-airport">
     <div class="beat-in">
       <span class="beat-num"><b>02</b> / 06</span>
       <div class="wrap"><div class="copy">
@@ -284,7 +284,7 @@ a{color:inherit}
     </div>
   </section>
 
-  <section class="beat beat-right" id="beat-istanbul">
+  <section class="beat" id="beat-istanbul">
     <div class="beat-in">
       <span class="beat-num"><b>04</b> / 06</span>
       <div class="wrap"><div class="copy">
@@ -306,7 +306,7 @@ a{color:inherit}
     </div>
   </section>
 
-  <section class="beat beat-right" id="beat-antalya">
+  <section class="beat" id="beat-antalya">
     <div class="beat-in">
       <span class="beat-num"><b>06</b> / 06</span>
       <div class="wrap"><div class="copy">
@@ -448,6 +448,10 @@ a{color:inherit}
 (function(){
   "use strict";
   var video = document.getElementById("scrub-video");
+  document.addEventListener("touchstart", function unlock() {
+    video.play().then(function(){ video.pause(); }).catch(function(){});
+    document.removeEventListener("touchstart", unlock);
+  }, { passive: true });
   var track = document.querySelector(".track");
   var hint = document.getElementById("scroll-hint");
   var hooks = document.querySelectorAll("[data-hook]");
