@@ -155,8 +155,8 @@ a{color:inherit}
 .book-top .h2{color:var(--sand);text-shadow:none;font-size:clamp(1.8rem,4vw,2.6rem)}
 .book-top p{color:var(--sand-dim);margin:.9rem 0 0;font-weight:300;max-width:52ch}
 .book-body{padding:clamp(22px,4vw,40px)}
-.date-picks{border:0;margin:0 0 1.5rem;padding:0}
-.date-picks legend{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sand-dim);padding:0;margin-bottom:.7rem}
+
+
 
 
 
@@ -361,8 +361,7 @@ a{color:inherit}
           <form id="trip-form" novalidate
                 data-gform="1FAIpQLSc8_Q_Y35poBD8_dNLTj9m1qZJOWZeo8IO4X_972XAmJg2iuw"
                 data-whatsapp="16314332021">
-            <fieldset class="date-picks">
-              <legend>Choose your dates</legend>
+            <label class="field"><span>Preferred dates</span>
               <select name="tour_dates">
                 <option value="May 15 to 25">May 15&ndash;25, 2027</option>
                 <option value="June 4 to 14">June 4&ndash;14, 2027</option>
@@ -370,7 +369,7 @@ a{color:inherit}
                 <option value="August 2 to 12">August 2&ndash;12, 2027</option>
                 <option value="September 2 to 12">September 2&ndash;12, 2027</option>
               </select>
-            </fieldset>
+            </label>
             <div class="pair">
               <label class="field"><span>Full name</span><input type="text" name="name" required autocomplete="name" placeholder="Your name"></label>
               <label class="field"><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@example.com"></label>
