@@ -157,12 +157,12 @@ a{color:inherit}
 .book-body{padding:clamp(22px,4vw,40px)}
 .date-picks{border:0;margin:0 0 1.5rem;padding:0}
 .date-picks legend{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sand-dim);padding:0;margin-bottom:.7rem}
-.date-opts{display:grid;gap:.6rem}
-@media(min-width:640px){.date-opts{grid-template-columns:repeat(3,1fr)}}
-.date-opt input{position:absolute;opacity:0;width:1px;height:1px}
-.date-opt span{display:block;cursor:pointer;border:1px solid rgba(245,240,232,.22);border-radius:10px;padding:.85em 1em;font-family:var(--mono);font-size:12px;color:var(--sand-dim);text-align:center;transition:all .15s ease}
-.date-opt input:checked + span{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:700}
-.date-opt input:focus-visible + span{outline:3px solid var(--blue);outline-offset:2px}
+
+
+
+
+
+
 .field{display:block;margin-bottom:1.15rem}
 .field>span{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sand-dim);margin-bottom:.45rem}
 .field input,.field select{width:100%;font-family:var(--body);font-size:16px;color:var(--sand);background:var(--navy);border:1px solid rgba(245,240,232,.22);border-radius:10px;padding:.82em .95em}
@@ -363,11 +363,13 @@ a{color:inherit}
                 data-whatsapp="16314332021">
             <fieldset class="date-picks">
               <legend>Choose your dates</legend>
-              <div class="date-opts">
-                <label class="date-opt"><input type="radio" name="tour_dates" value="May 15 to 25" checked><span>May 15&ndash;25, 2027</span></label>
-                <label class="date-opt"><input type="radio" name="tour_dates" value="June 4 to 14"><span>June 4&ndash;14, 2027</span></label>
-                <label class="date-opt"><input type="radio" name="tour_dates" value="July 10 to 20"><span>July 10&ndash;20, 2027</span></label>
-              </div>
+              <select name="tour_dates">
+                <option value="May 15 to 25">May 15&ndash;25, 2027</option>
+                <option value="June 4 to 14">June 4&ndash;14, 2027</option>
+                <option value="July 10 to 20">July 10&ndash;20, 2027</option>
+                <option value="August 2 to 12">August 2&ndash;12, 2027</option>
+                <option value="September 2 to 12">September 2&ndash;12, 2027</option>
+              </select>
             </fieldset>
             <div class="pair">
               <label class="field"><span>Full name</span><input type="text" name="name" required autocomplete="name" placeholder="Your name"></label>
