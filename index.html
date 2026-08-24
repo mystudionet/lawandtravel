@@ -194,6 +194,16 @@ a{color:inherit}
 .faq-a{color:var(--sand-dim);font-weight:300;line-height:1.75;font-size:.97rem}
 .back-to-top{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(245,240,232,.22);color:var(--sand);font-size:1.4rem;margin-top:2.5rem;text-decoration:none;transition:background .2s,border-color .2s}
 .back-to-top:hover{background:rgba(245,240,232,.08);border-color:rgba(245,240,232,.45)}
+
+.film-btn{background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);padding:.82em 1.2em;border-radius:10px;border:1.5px solid rgba(11,13,16,.3);transition:background .2s}
+.film-btn:hover{background:rgba(11,13,16,.06)}
+.film-btn svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:center;justify-content:center}
+.modal-overlay.is-open{display:flex}
+.modal-box{position:relative;width:min(900px,92vw);aspect-ratio:16/9}
+.modal-box iframe{width:100%;height:100%;border:none;border-radius:12px}
+.modal-close{position:absolute;top:-44px;right:0;background:none;border:none;color:#fff;font-size:1.8rem;cursor:pointer;line-height:1;padding:4px 8px;opacity:.8;transition:opacity .2s}
+.modal-close:hover{opacity:1}
 </style>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lawandtravel.com/">
@@ -252,6 +262,7 @@ a{color:inherit}
         <div class="beat-actions">
           <a class="btn" href="#request">Request your spot</a>
           <a class="btn btn--light" href="#itinerary">See the itinerary</a>
+          <button class="film-btn" id="open-film"><svg viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>Watch the film</button>
         </div>
         <dl class="beat-facts">
           <div><dt>Cities</dt><dd>03</dd></div>
@@ -537,6 +548,32 @@ a{color:inherit}
     status.textContent = "Request received for " + name + " (" + dates + "). Opening WhatsApp to confirm.";
     form.reset();
   });
+})();
+</script>
+<div class="modal-overlay" id="film-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="close-film">&times;</button>
+    <iframe id="film-frame" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+<script>
+(function(){
+  var modal = document.getElementById('film-modal');
+  var frame = document.getElementById('film-frame');
+  var src = 'https://www.youtube.com/embed/K0BA9q9yKeU?autoplay=1&rel=0';
+  document.getElementById('open-film').addEventListener('click', function(){
+    frame.src = src;
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  });
+  function closeModal(){
+    modal.classList.remove('is-open');
+    frame.src = '';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('close-film').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
 })();
 </script>
 </body>
